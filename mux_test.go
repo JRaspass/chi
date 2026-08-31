@@ -2153,9 +2153,7 @@ func BenchmarkMux(b *testing.B) {
 			r, _ := http.NewRequest("GET", path, nil)
 
 			b.ReportAllocs()
-			b.ResetTimer()
-
-			for i := 0; i < b.N; i++ {
+			for b.Loop() {
 				mx.ServeHTTP(w, r)
 			}
 		})
