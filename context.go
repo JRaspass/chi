@@ -125,9 +125,9 @@ func (x *Context) Clone() *Context {
 // URLParam returns the corresponding URL parameter value from the request
 // routing context.
 func (x *Context) URLParam(key string) string {
-	for k := len(x.URLParams.Keys) - 1; k >= 0; k-- {
-		if x.URLParams.Keys[k] == key {
-			return x.URLParams.Values[k]
+	for i, k := range slices.Backward(x.URLParams.Keys) {
+		if k == key {
+			return x.URLParams.Values[i]
 		}
 	}
 	return ""
