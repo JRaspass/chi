@@ -5,7 +5,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	chi "github.com/go-chi/chi/v5"
+	"github.com/go-chi/chi/v5"
 )
 
 func TestHeartbeat(t *testing.T) {
